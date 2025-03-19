@@ -35,8 +35,8 @@ def generator(md_file_path, output_file_path, column_num):
                 level = line.count('#')
                 # 去除标题行开头的 '#' 符号以及前后的空白字符，得到纯标题文本
                 title = line.lstrip('#').strip()
-                # 生成用于锚点链接的标题，将标题中的空格替换为 '-'，并转换为小写
-                anchor = title.replace(' ', '-').lower()
+                # 生成用于锚点链接的标题，将标题中的空格替换为 '-'，并转换为小写，同时去除点号
+                anchor = title.replace(' ', '-').replace('.', '').lower()
                 # 生成包含标题级别和标题链接的元组，添加到 toc 列表中
                 toc_item = (level, f"[{title}](#{anchor})")
                 toc.append(toc_item)
@@ -87,7 +87,7 @@ def generator(md_file_path, output_file_path, column_num):
                 elif level > 2:
                     # 遇到三级及以上标题时
                     # 计算缩进量，根据标题级别减去 2 得到
-                    indent = " " * (level - 2)
+                    indent = "  " * (level - 2)
                     # 如果当前行有对应的二级标题位置
                     if current_second_level_index < len(current_row):
                         # 将子标题添加到对应的二级标题后面，并添加换行符和缩进
