@@ -114,4 +114,4 @@ generator(md_file_path, output_file_path, column_num)
 # 源码
 ::github{repo="cimorn/PythonFunctionTools"}
 
-GitHub：[ItemManageSystem](https://github.com/cimorn/PythonFunctionTools)
+GitHub：[PythonFunctionTools](https://github.com/cimorn/PythonFunctionTools)
